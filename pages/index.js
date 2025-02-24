@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { UserCircle2, ChevronDown, Plus } from "lucide-react";
+import { UserCircle2, ChevronDown, Plus , Minus } from "lucide-react";
 import profileImage from "../public/profile.jpg";
 import {
   DropdownMenu,
@@ -28,11 +28,11 @@ export default function Home() {
     <main className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
       <header className="fixed top-0 right-0 left-0 p-4 bg-gray-800 border-b border-gray-700 z-10">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-evenly items-center">
           <div className="flex items-center space-x-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="text-white flex items-center space-x-2">
+                <Button variant="ghost" className="text-white flex items-center space-x-1 px-1 py-1 sm:px-4 sm sm:space-x-2">
                   <span>Collections</span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
@@ -46,10 +46,10 @@ export default function Home() {
             </DropdownMenu>
 
             {/* Create Collection Button */}
-            <Dialog>
+            <Dialog className="m-0">
               <DialogTrigger asChild>
-                <Button variant="outline" className="bg-gray-700 hover:bg-gray-600 text-white">
-                  <Plus className="h-4 w-4 mr-2" />
+                <Button variant="outline" className="bg-gray-700 hover:bg-gray-600 text-white py-1 px-1 sm:px-4">
+                  <Plus className="h-4 w-4 mr-1 sm:mr-2" />
                   Create Collection
                 </Button>
               </DialogTrigger>
@@ -88,13 +88,16 @@ export default function Home() {
           <Button variant="ghost" size="icon" onClick={() => router.push("/profile")} className="text-white">
             <UserCircle2 className="h-6 w-6" />
           </Button>
+          {/* <Button variant="ghost" size="icon" className="text-white">
+            <Minus className="h-6 w-6" />
+          </Button> */}
         </div>
       </header>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 pt-20 pb-24">
-        <div className="grid place-items-center min-h-[80vh]">
-          <div className="relative w-full max-w-2xl aspect-[3/4] bg-neutral-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <div className="grid place-items-center">
+          <div className="relative sm:w-2/5 max-w-2xl aspect-[3/4] bg-neutral-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             <Image
               src={profileImage}
               alt="Fashion model wearing white t-shirt and jeans"
@@ -104,7 +107,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Empty State Message */}
+        {/* Empty State Message
         <div className="text-center mt-8 space-y-4">
           <p className="text-neutral-400">No items yet 🛍️</p>
           <p className="text-sm text-neutral-500">
@@ -113,7 +116,7 @@ export default function Home() {
           <Button variant="secondary" className="bg-neutral-800 hover:bg-neutral-700 text-white">
             Try on
           </Button>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom Navigation */}

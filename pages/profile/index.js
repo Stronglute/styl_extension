@@ -51,7 +51,7 @@ export default function ProfilePage() {
               <Label className="text-sm text-neutral-300">Account Type</Label>
               <div className="flex items-center gap-3">
                 <Badge variant="secondary" className="bg-white/10 text-white">
-                  Stylar Basic
+                  Vesti Basic
                 </Badge>
                 <Button size="sm" className="bg-purple-600 hover:bg-purple-700 text-white">
                   Upgrade

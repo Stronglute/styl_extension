@@ -8,8 +8,8 @@ let isLoaded = false;
 let isContentVisible = false;
 let hasOpened = false;
 let displayContentActivated = false;
-let frameTop = window.innerHeight - 94;
-let frameLeft = window.innerWidth - 350;
+let frameTop = window.innerHeight - 74;
+let frameLeft = window.innerWidth - 300;
 let overflow = false;
 let lastPositionLeft = "0px";
 let isDragging = false;
@@ -17,7 +17,8 @@ let isDragging = false;
 window.addEventListener(
   "message",
   async (e) => {
-    console.log("MES " + e.data["id"]);
+    //console.log("MES " + e.data["id"]);
+    console.log("Content script is running!");
     if (e.data["id"] === "expandActions") {
       extensionActions.style.width = "252px";
 
@@ -420,6 +421,7 @@ async function handleStartGeneration(e) {
 }
 
 function messageFrame(id, content) {
+  console.log("id is " + id + " and ccccontent is " + content);
   frame.contentWindow.postMessage(
     {
       id,
@@ -430,6 +432,7 @@ function messageFrame(id, content) {
 }
 
 function messageActionsFrame(id, content) {
+  console.log("id is " + id + " and ccccccontent is " + content);
   extensionActions.contentWindow.postMessage(
     {
       id,

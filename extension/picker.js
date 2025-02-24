@@ -15,6 +15,7 @@ function terminate() {
 window.addEventListener(
   "message",
   (e) => {
+    console.log("picker is receiving " + e.data["id"]);
     if (e.data["id"] === "selectOptions") {
       saveButtonIframe.style.height = "136px";
       saveButtonIframe.style.width = "176px";
